@@ -2667,3 +2667,12 @@ ul.nav-menu.d-none.d-lg-flex {
     margin-top: 85px;
   }
 }
+
+/* Apply only for small mobile screens (up to 576px wide) */
+@media (max-width: 576px) {
+  .hero-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 6px;
+  }
+}
