@@ -1,0 +1,1459 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>服务条款 | 溯湃科技</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/floating-btn.css" />
+        <style>
+            body {
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                min-height: 100vh;
+                position: relative;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url("assets/images/-------1.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 0.03;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            .back-home {
+                position: relative;
+                top: 230px;
+                left: 30px;
+                z-index: 1000;
+            }
+
+            .back-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 24px;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border: none;
+                border-radius: 50px;
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .back-btn:hover {
+                background: white;
+                transform: translateX(-5px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                color: #000;
+            }
+
+            .terms-hero {
+                padding: 120px 0 60px;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .terms-hero h1 {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(32px, 5vw, 48px);
+                font-weight: 600;
+                color: #000;
+                margin-bottom: 15px;
+            }
+
+            .terms-hero .subtitle {
+                font-size: clamp(16px, 2.5vw, 20px);
+                color: rgba(0, 0, 0, 0.6);
+                margin-bottom: 30px;
+            }
+
+            .last-updated {
+                display: inline-block;
+                padding: 8px 20px;
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.7);
+                margin-bottom: 20px;
+            }
+
+            .terms-container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 20px 80px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .terms-content {
+                display: grid;
+                gap: 30px;
+            }
+
+            .terms-section {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                border-radius: 24px;
+                padding: 40px 45px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                transition: all 0.3s ease;
+            }
+
+            .terms-section:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            }
+
+            .terms-section h2 {
+                font-family: "Inter", sans-serif;
+                font-size: clamp(22px, 3vw, 28px);
+                font-weight: 600;
+                color: #000;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .terms-section h2 .section-number {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(
+                    92.95deg,
+                    rgba(152, 217, 249, 0.8) -21.17%,
+                    rgba(219, 201, 129, 0.8) 136.83%
+                );
+                border-radius: 12px;
+                font-size: 18px;
+                font-weight: 600;
+                color: #000;
+            }
+
+            .terms-section h2 .english-title {
+                font-size: 16px;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.5);
+                margin-left: 10px;
+            }
+
+            .terms-section h3 {
+                font-size: clamp(18px, 2.5vw, 22px);
+                font-weight: 600;
+                color: #000;
+                margin-top: 25px;
+                margin-bottom: 12px;
+            }
+
+            .terms-section p,
+            .terms-section li {
+                font-size: 15px;
+                line-height: 1.8;
+                color: rgba(0, 0, 0, 0.75);
+                margin-bottom: 15px;
+            }
+
+            .terms-section ul,
+            .terms-section ol {
+                padding-left: 25px;
+                margin-bottom: 20px;
+            }
+
+            .terms-section li {
+                margin-bottom: 10px;
+            }
+
+            .divider {
+                height: 1px;
+                background: rgba(0, 0, 0, 0.1);
+                margin: 25px 0;
+            }
+
+            .highlight-box {
+                background: linear-gradient(
+                    92.95deg,
+                    rgba(152, 217, 249, 0.15) -21.17%,
+                    rgba(219, 201, 129, 0.15) 136.83%
+                );
+                border-left: 4px solid rgba(152, 217, 249, 0.8);
+                padding: 20px 25px;
+                border-radius: 12px;
+                margin: 20px 0;
+            }
+
+            .contact-info {
+                background: rgba(255, 255, 255, 0.6);
+                padding: 25px;
+                border-radius: 16px;
+                margin-top: 20px;
+            }
+
+            .contact-info p {
+                margin-bottom: 8px;
+                font-size: 15px;
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            .contact-info strong {
+                color: #000;
+                font-weight: 600;
+            }
+
+            @media (max-width: 768px) {
+                .terms-hero {
+                    padding: 100px 0 40px;
+                }
+
+                .terms-section {
+                    padding: 30px 25px;
+                }
+
+                .back-home {
+                    top: 20px;
+                    left: 20px;
+                }
+
+                .terms-section h2 {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 8px;
+                }
+
+                .terms-section h2 .english-title {
+                    margin-left: 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="loading-spinner-backdrop"></div>
+            <div class="loading-spinner-container">
+                <div class="spinner-circle"></div>
+            </div>
+        </div>
+
+        <div class="back-home">
+            <a href="index.html" class="back-btn">
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                返回首页
+            </a>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img
+                        src="assets/images/---2.png"
+                        alt="Logo Icon"
+                        class="logo-icon"
+                    />
+                    <p
+                        style="
+                            font-family: &quot;Inter&quot;;
+                            font-size: 20px;
+                            margin-bottom: 0px;
+                        "
+                    >
+                        S O L P H I R E
+                    </p>
+                </div>
+
+                <ul class="nav-menu d-none d-lg-flex">
+                    <li class="nav-item">
+                        <a href="index.html#products" class="nav-link">产品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#cooperation" class="nav-link">技术合作</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#support" class="nav-link">技术支持</a>
+                    </li>
+                </ul>
+
+                <div class="nav-icons d-flex align-items-center">
+                    <button class="icon-btn" id="searchBtn" aria-label="Search">
+                        <svg
+                            width="29"
+                            height="29"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+
+                    <div class="dropdown-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="languageBtn"
+                            aria-label="Language"
+                        >
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                                ></path>
+                            </svg>
+                        </button>
+                        <div id="languageDropdown" class="dropdown-menu">
+                            <div class="dropdown-item active" data-lang="zh">
+                                <span class="dropdown-icon">🇨🇳</span>
+                                <span>中文 (简体)</span>
+                            </div>
+                            <div class="dropdown-item" data-lang="en">
+                                <span class="dropdown-icon">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="dropdown-item" data-lang="ja">
+                                <span class="dropdown-icon">🇯🇵</span>
+                                <span>日本語</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="userBtn"
+                            aria-label="Users"
+                        >
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                                ></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </button>
+                        <div id="userDropdown" class="dropdown-menu">
+                            <a href="login.html" class="dropdown-item">
+                                <span class="dropdown-icon">🔑</span>
+                                <span>登录 | Login</span>
+                            </a>
+                            <a href="register.html" class="dropdown-item">
+                                <span class="dropdown-icon">📝</span>
+                                <span>注册 | Register</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item">
+                                <span class="dropdown-icon">👤</span>
+                                <span>个人资料 | Profile</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <span class="dropdown-icon">⚙️</span>
+                                <span>设置 | Settings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="hamburger-menu"
+                        id="hamburgerMenu"
+                        aria-label="Menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <ul>
+                <li><a href="index.html#products">产品</a></li>
+                <li><a href="index.html#about">关于我们</a></li>
+                <li><a href="index.html#cooperation">技术合作</a></li>
+                <li><a href="index.html#support">技术支持</a></li>
+            </ul>
+        </div>
+
+        <section class="terms-hero">
+            <div class="container">
+                <div class="last-updated">最后更新：2025年10月2日</div>
+                <h1>服务条款 | Terms of Service</h1>
+                <p class="subtitle">溯湃科技用户服务协议</p>
+            </div>
+        </section>
+
+        <div class="terms-container">
+            <div class="terms-content">
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">1</span>
+                        使用协议
+                        <span class="english-title">User Agreement</span>
+                    </h2>
+                    <div class="divider"></div>
+                    <p>
+                        欢迎使用溯湃科技（以下简称"我们"或"本公司"）提供的产品和服务。在使用我们的服务之前，请您仔细阅读并充分理解本协议的全部内容，特别是免除或限制责任的条款、法律适用和争议解决条款。
+                    </p>
+
+                    <h3>1.1 协议接受</h3>
+                    <p>
+                        当您注册成为溯湃科技用户或使用我们的任何服务时，即表示您已阅读、理解并同意接受本服务条款的所有内容。如果您不同意本协议的任何内容，请立即停止使用我们的服务。
+                    </p>
+
+                    <h3>1.2 协议变更</h3>
+                    <p>
+                        我们保留随时修改本协议的权利。修改后的协议将在网站上公布，并自公布之日起生效。您继续使用我们的服务即视为接受修改后的协议。建议您定期查看本协议以了解最新变更。
+                    </p>
+
+                    <h3>1.3 服务范围</h3>
+                    <p>
+                        本协议适用于溯湃科技提供的所有产品和服务，包括但不限于：
+                    </p>
+                    <ul>
+                        <li>GeoOptix AI零件智研软件及相关功能</li>
+                        <li>人工智能解决方案与技术咨询服务</li>
+                        <li>多模态大模型、机器学习、机器视觉等AI技术服务</li>
+                        <li>三维数字化资产管理与智能制造转型解决方案</li>
+                        <li>其他我们提供的相关产品和服务</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">2</span>
+                        知识产权
+                        <span class="english-title">Intellectual Property</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>2.1 所有权声明</h3>
+                    <p>
+                        溯湃科技提供的所有服务、软件、技术、文档、图形、界面设计、版面设计等的知识产权均归溯湃科技或其关联公司所有。未经我们书面许可，任何人不得擅自使用、修改、复制、公开传播、改变、散布、发行或公开发表本网站程序或内容。
+                    </p>
+
+                    <h3>2.2 商标权利</h3>
+                    <p>
+                        "溯湃科技"、"SOLPHIRE"、"GeoOptix"及相关标识均为溯湃科技的注册商标或商标。未经我们事先书面同意，您不得以任何方式使用我们的商标、服务标记、商号、域名或其他显著品牌特征。
+                    </p>
+
+                    <h3>2.3 用户内容</h3>
+                    <p>
+                        您在使用我们服务时上传、提交或传输的内容（包括但不限于文本、图片、数据等）的知识产权归您所有。但您授予我们在提供服务所必需的范围内使用该内容的非排他性、全球性、免费许可。
+                    </p>
+
+                    <div class="highlight-box">
+                        <p>
+                            <strong>重要提示：</strong>
+                            我们尊重知识产权，如果您发现有任何侵犯您知识产权的行为，请立即通过本协议末尾的联系方式通知我们，我们将及时处理。
+                        </p>
+                    </div>
+
+                    <h3>2.4 技术保护</h3>
+                    <p>
+                        我们的软件和服务受著作权法、商标法、专利法及其他知识产权法律的保护。您不得对我们的软件进行反向工程、反编译、反汇编或以其他方式试图获取源代码。
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">3</span>
+                        用户责任
+                        <span class="english-title">User Responsibilities</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>3.1 账号管理</h3>
+                    <p>
+                        您有责任维护您的账号和密码的安全性。您应对使用您的账号进行的所有活动负责。如发现任何未经授权的使用，请立即通知我们。
+                    </p>
+
+                    <h3>3.2 合法使用</h3>
+                    <p>
+                        您同意在使用我们的服务时遵守所有适用的法律法规，不得：
+                    </p>
+                    <ul>
+                        <li>
+                            发布、传输或分享任何非法、有害、威胁、辱骂、骚扰、侵权的内容
+                        </li>
+                        <li>干扰或破坏服务器或网络，或违反网络使用规定</li>
+                        <li>侵犯他人的知识产权或其他合法权益</li>
+                        <li>冒充他人或虚假陈述与他人的关系</li>
+                        <li>收集或存储他人的个人信息</li>
+                        <li>
+                            将服务用于任何商业用途，除非获得我们的明确书面同意
+                        </li>
+                    </ul>
+
+                    <h3>3.3 数据准确性</h3>
+                    <p>
+                        您应确保向我们提供的所有信息和数据的真实性、准确性和完整性。您对因提供虚假、不准确或不完整信息而导致的任何后果承担全部责任。
+                    </p>
+
+                    <h3>3.4 禁止行为</h3>
+                    <div class="highlight-box">
+                        <p><strong>严格禁止以下行为：</strong></p>
+                        <ul>
+                            <li>
+                                使用任何自动化工具或手段访问、抓取或收集我们的服务内容
+                            </li>
+                            <li>
+                                对我们的系统进行任何形式的渗透测试或安全攻击
+                            </li>
+                            <li>传播病毒、木马或其他恶意代码</li>
+                            <li>绕过或破解我们的安全措施或技术保护措施</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">4</span>
+                        隐私保护
+                        <span class="english-title">Privacy Protection</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>4.1 隐私政策</h3>
+                    <p>
+                        我们重视您的隐私保护。我们如何收集、使用、存储和保护您的个人信息详见我们的《隐私政策》。使用我们的服务即表示您同意我们按照《隐私政策》处理您的个人信息。
+                    </p>
+
+                    <h3>4.2 信息收集</h3>
+                    <p>为了提供更好的服务，我们可能会收集以下信息：</p>
+                    <ul>
+                        <li>账户信息：用户名、电子邮件地址、联系方式等</li>
+                        <li>使用数据：登录记录、功能使用情况、交互行为等</li>
+                        <li>技术信息：IP地址、浏览器类型、设备信息等</li>
+                        <li>业务数据：您在使用服务过程中上传或生成的数据</li>
+                    </ul>
+
+                    <h3>4.3 信息使用</h3>
+                    <p>我们收集的信息将用于：</p>
+                    <ul>
+                        <li>提供、维护和改进我们的服务</li>
+                        <li>开发新的功能和服务</li>
+                        <li>与您沟通，包括发送服务通知和更新</li>
+                        <li>保护我们的服务和用户的安全</li>
+                        <li>遵守法律义务</li>
+                    </ul>
+
+                    <h3>4.4 数据安全</h3>
+                    <p>
+                        我们采用行业标准的安全措施保护您的数据，包括加密传输、访问控制、定期安全审计等。但请注意，没有任何互联网传输或电子存储方法是100%安全的。
+                    </p>
+
+                    <div class="highlight-box">
+                        <p>
+                            <strong>您的权利：</strong>
+                            您有权访问、更正、删除或限制我们处理您的个人信息。如需行使这些权利，请通过本协议末尾的联系方式与我们联系。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">5</span>
+                        服务变更
+                        <span class="english-title">Service Changes</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>5.1 服务修改权</h3>
+                    <p>
+                        我们保留随时修改、暂停或终止部分或全部服务的权利，无论是否通知。我们将尽力提前通知重大变更，但不承担因服务变更而产生的任何责任。
+                    </p>
+
+                    <h3>5.2 功能更新</h3>
+                    <p>
+                        我们可能会定期更新我们的产品和服务，以改进性能、增加新功能或修复错误。这些更新可能会改变现有功能的工作方式或外观。
+                    </p>
+
+                    <h3>5.3 服务终止</h3>
+                    <p>在以下情况下，我们有权终止向您提供服务：</p>
+                    <ul>
+                        <li>您违反本协议的任何条款</li>
+                        <li>您的行为给我们或其他用户造成损害或法律风险</li>
+                        <li>根据法律要求或政府命令</li>
+                        <li>您要求终止服务</li>
+                        <li>出于商业原因决定停止提供某项服务</li>
+                    </ul>
+
+                    <h3>5.4 数据导出</h3>
+                    <p>
+                        在服务终止前，我们将提供合理的时间让您导出您的数据。服务终止后，我们可能会删除您的账户和数据，除非法律要求我们保留。
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">6</span>
+                        免责声明
+                        <span class="english-title">Disclaimer</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>6.1 服务现状</h3>
+                    <p>
+                        我们的服务按"现状"和"可用"基础提供。在法律允许的最大范围内，我们不对服务做任何明示或暗示的保证，包括但不限于适销性、特定用途适用性、不侵权的保证。
+                    </p>
+
+                    <h3>6.2 责任限制</h3>
+                    <div class="highlight-box">
+                        <p>
+                            <strong>重要限制：</strong>
+                            在任何情况下，溯湃科技及其关联公司、董事、员工、代理人不对以下情况承担责任：
+                        </p>
+                        <ul>
+                            <li>任何间接、偶然、特殊、惩罚性或后果性损害</li>
+                            <li>利润、收入、数据或业务机会的损失</li>
+                            <li>因使用或无法使用服务而造成的损害</li>
+                            <li>第三方的行为或内容</li>
+                            <li>未经授权访问或修改您的传输或数据</li>
+                        </ul>
+                    </div>
+
+                    <h3>6.3 不可抗力</h3>
+                    <p>
+                        对于因不可抗力（包括但不限于自然灾害、战争、罢工、政府行为、网络攻击、系统故障等）导致的服务中断或延迟，我们不承担任何责任。
+                    </p>
+
+                    <h3>6.4 第三方链接</h3>
+                    <p>
+                        我们的服务可能包含指向第三方网站或服务的链接。我们不控制这些第三方网站或服务，也不对其内容、隐私政策或做法负责。
+                    </p>
+
+                    <h3>6.5 技术限制</h3>
+                    <p>
+                        虽然我们努力提供高质量的服务，但AI技术本身存在一定的不确定性和局限性。我们不保证服务结果的绝对准确性或完整性，建议您在关键决策时结合专业人士的意见。
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">7</span>
+                        争议解决
+                        <span class="english-title">Dispute Resolution</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>7.1 适用法律</h3>
+                    <p>
+                        本协议的解释、执行和争议解决均适用中华人民共和国法律（不包括其冲突法规则）。
+                    </p>
+
+                    <h3>7.2 友好协商</h3>
+                    <p>
+                        因本协议引起的或与本协议有关的任何争议，双方应首先通过友好协商解决。协商期限为30天，自一方向另一方发出书面协商请求之日起计算。
+                    </p>
+
+                    <h3>7.3 仲裁</h3>
+                    <p>
+                        如果争议在协商期限内无法解决，任何一方均可将争议提交至中国国际经济贸易仲裁委员会深圳分会，按照其届时有效的仲裁规则进行仲裁。仲裁裁决是终局的，对双方均有约束力。
+                    </p>
+
+                    <h3>7.4 管辖权</h3>
+                    <p>
+                        如因任何原因仲裁条款无效或不适用，双方同意将争议提交至深圳市南山区人民法院诉讼解决。
+                    </p>
+
+                    <h3>7.5 诉讼费用</h3>
+                    <p>
+                        除仲裁裁决或法院判决另有规定外，败诉方应承担仲裁费、律师费及其他合理的争议解决费用。
+                    </p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">8</span>
+                        其他条款
+                        <span class="english-title">Miscellaneous</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <h3>8.1 完整协议</h3>
+                    <p>
+                        本协议构成您与溯湃科技之间关于使用我们服务的完整协议，并取代之前的所有口头或书面协议。
+                    </p>
+
+                    <h3>8.2 可分割性</h3>
+                    <p>
+                        如果本协议的任何条款被认定为无效或不可执行，该条款应在最大可能范围内被解释为有效，其余条款继续完全有效。
+                    </p>
+
+                    <h3>8.3 不弃权</h3>
+                    <p>
+                        我们未行使或延迟行使本协议项下的任何权利或救济不应被视为对该权利或救济的放弃。
+                    </p>
+
+                    <h3>8.4 转让</h3>
+                    <p>
+                        未经我们事先书面同意，您不得转让本协议项下的权利或义务。我们可以自由转让本协议项下的权利和义务给任何关联公司或继承我们业务的实体。
+                    </p>
+
+                    <h3>8.5 语言</h3>
+                    <p>本协议以中文编写。如有其他语言版本，以中文版本为准。</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>
+                        <span class="section-number">9</span>
+                        联系我们
+                        <span class="english-title">Contact Us</span>
+                    </h2>
+                    <div class="divider"></div>
+
+                    <p>
+                        如果您对本服务条款有任何疑问、意见或建议，或需要行使您的权利，请通过以下方式与我们联系：
+                    </p>
+
+                    <div class="contact-info">
+                        <p><strong>公司名称：</strong>深圳溯湃科技有限公司</p>
+                        <p><strong>公司地址：</strong>深圳市南山区科技园</p>
+                        <p><strong>电子邮箱：</strong>solpire@outlook.com</p>
+                        <p>
+                            <strong>客服时间：</strong>工作日
+                            9:00-18:00（法定节假日除外）
+                        </p>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px">
+                        <p>
+                            <strong>感谢您选择溯湃科技！</strong>
+                        </p>
+                        <p style="margin-bottom: 0">
+                            我们致力于为您提供优质的AI解决方案和服务。您的信任是我们前进的动力，我们将持续创新，不断提升服务质量，助力您的数字化转型之旅。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-bg">
+                <img
+                    src="./assets/images/Rectangle_14.png"
+                    alt="footer background"
+                />
+            </div>
+
+            <div class="container-fluid">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>产品</h4>
+                        <ul>
+                            <li>思维导图</li>
+                            <li>流程图</li>
+                            <li>结构化图</li>
+                            <li>在线白板</li>
+                            <li>原型/设计</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>资源</h4>
+                        <ul>
+                            <li>模板社区</li>
+                            <li>知识教程</li>
+                            <li>视频频道</li>
+                            <li>帮助中心</li>
+                            <li>使用手册</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>支持</h4>
+                        <ul>
+                            <li>私有化部署</li>
+                            <li>教育认证</li>
+                            <li>对标Visio</li>
+                            <li>LaTex</li>
+                            <li>MathType</li>
+                            <li>Geogebra</li>
+                            <li>Mermaid</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>公司</h4>
+                        <ul>
+                            <li>关于我们</li>
+                            <li>加入我们</li>
+                            <li>品牌故事</li>
+                            <li>用户协议</li>
+                            <li>
+                                <a
+                                    href="terms.html"
+                                    style="
+                                        color: inherit;
+                                        text-decoration: none;
+                                    "
+                                    >服务条款</a
+                                >
+                            </li>
+                            <li>隐私政策</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section footer-qr">
+                        <h4>关注我们</h4>
+                        <div class="qr-code-container">
+                            <img
+                                src="assets/images/qr-code.png"
+                                alt="QR Code"
+                                class="qr-code"
+                            />
+                        </div>
+                        <div class="social-icons">
+                            <img
+                                src="assets/images/wechat.png"
+                                alt="WeChat"
+                                class="social-icon"
+                            />
+                            <img
+                                src="assets/images/weibo.png"
+                                alt="Weibo"
+                                class="social-icon"
+                            />
+                            <img
+                                src="assets/images/linkedin.png"
+                                alt="LinkedIn"
+                                class="social-icon"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        Copyright © 2025 SOLPHIRE Technology. All Rights
+                        Reserved. 深圳溯湃科技有限公司
+                    </p>
+                    <p class="footer-icp">粤ICP备xxxxxxxx号-1</p>
+                </div>
+            </div>
+        </footer>
+
+        <div
+            class="modal fade"
+            id="searchModal"
+            tabindex="-1"
+            aria-labelledby="searchModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="searchModalLabel">搜索</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="输入搜索关键词..."
+                            id="searchInput"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating AI Assistant Button -->
+        <button
+            class="floating-ai-btn"
+            id="floatingAiBtn"
+            aria-label="AI Assistant"
+        >
+            <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                ></path>
+            </svg>
+        </button>
+
+        <!-- Chat Modal -->
+        <div class="chat-modal-overlay" id="chatModal">
+            <div class="chat-modal-container">
+                <!-- Enhanced Header -->
+                <div class="chat-modal-header">
+                    <div class="chat-header-left">
+                        <div class="chat-avatar-status">
+                            <div class="chat-ai-avatar">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div class="chat-status-indicator"></div>
+                        </div>
+                        <div class="chat-header-info">
+                            <h3>AI Agent 助手</h3>
+                            <span class="chat-status-text"
+                                >在线 - 随时为您服务</span
+                            >
+                        </div>
+                    </div>
+                    <div class="chat-header-actions">
+                        <button
+                            class="chat-action-btn"
+                            id="chatSettings"
+                            aria-label="Settings"
+                            title="设置"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="chat-action-btn"
+                            id="chatClear"
+                            aria-label="Clear Chat"
+                            title="清空对话"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="chat-modal-close"
+                            id="chatModalClose"
+                            aria-label="Close"
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Bar -->
+                <div class="chat-quick-actions">
+                    <button class="quick-action-btn" data-action="功能">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"
+                            ></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
+                        <span>产品功能</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="价格如何">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path
+                                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            ></path>
+                        </svg>
+                        <span>价格方案</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="如何开始使用">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>快速开始</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="支持">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path
+                                d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                            ></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <span>技术支持</span>
+                    </button>
+                </div>
+
+                <!-- Messages Area with File Drop Zone -->
+                <div class="chat-modal-messages" id="chatMessages">
+                    <div class="chat-welcome-message">
+                        <div class="welcome-icon">
+                            <svg
+                                width="48"
+                                height="48"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h4>欢迎使用 AI Agent 助手</h4>
+                        <p>
+                            我可以帮您了解GeoOptix产品功能、技术支持和更多信息
+                        </p>
+                    </div>
+                </div>
+
+                <!-- File Drop Zone Overlay -->
+                <div class="file-drop-zone" id="fileDropZone">
+                    <div class="drop-zone-content">
+                        <svg
+                            width="64"
+                            height="64"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                            ></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h3>拖放文件到此处</h3>
+                        <p>支持图片、PDF、文档等格式</p>
+                    </div>
+                </div>
+
+                <!-- Attachment Preview Area -->
+                <div
+                    class="chat-attachments-preview"
+                    id="attachmentsPreview"
+                ></div>
+
+                <!-- Enhanced Input Area -->
+                <div class="chat-modal-input-area">
+                    <div class="input-tools">
+                        <button
+                            class="input-tool-btn"
+                            id="fileUploadBtn"
+                            aria-label="Upload File"
+                            title="上传文件"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                                ></path>
+                            </svg>
+                        </button>
+                        <input
+                            type="file"
+                            id="fileInput"
+                            multiple
+                            accept="image/*,.pdf,.doc,.docx,.txt"
+                            style="display: none"
+                        />
+
+                        <button
+                            class="input-tool-btn"
+                            id="voiceInputBtn"
+                            aria-label="Voice Input"
+                            title="语音输入"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"
+                                ></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                        </button>
+
+                        <button
+                            class="input-tool-btn"
+                            id="emojiBtn"
+                            aria-label="Emoji"
+                            title="表情"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="input-main-wrapper">
+                        <textarea
+                            class="chat-modal-input"
+                            id="chatInput"
+                            placeholder="输入您的问题... (支持 Shift+Enter 换行)"
+                            autocomplete="off"
+                            rows="1"
+                        ></textarea>
+                        <button class="chat-modal-send" id="chatSend">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon
+                                    points="22 2 15 22 11 13 2 9 22 2"
+                                ></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Character Count -->
+                <div class="chat-input-footer">
+                    <span class="character-count" id="charCount">0/500</span>
+                    <span class="input-hint"
+                        >Shift+Enter 换行 | Enter 发送</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <footer >
+            <div class="container-fluid">
+                <div class="footer-bottom">
+                    <div class="qr-block">
+                        <div class="copyright">
+                            <p>
+                                ©2020 北京光大维他信息技术有限公司 |
+                                京ICP备15006865号-1 | 京公网安备
+                                11010802033154号
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- Bootstrap Search Modal -->
+        <div
+            class="modal fade"
+            id="searchModal"
+            tabindex="-1"
+            aria-labelledby="searchModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div
+                    class="modal-content"
+                    style="border-radius: 20px; border: none"
+                >
+                    <div
+                        class="modal-header"
+                        style="
+                            border-bottom: 1px solid #eee;
+                            padding: 25px 30px;
+                        "
+                    >
+                        <div class="d-flex align-items-center gap-3 w-100">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#666"
+                                stroke-width="2"
+                            >
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input
+                                type="text"
+                                class="form-control border-0 shadow-none"
+                                id="searchInput"
+                                placeholder="搜索产品、服务、技术解决方案..."
+                                style="font-size: 18px"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div
+                        class="modal-body"
+                        style="max-height: 500px; overflow-y: auto"
+                    >
+                        <div class="mb-4">
+                            <h6
+                                class="text-uppercase text-muted mb-3"
+                                style="
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                "
+                            >
+                                热门搜索 | Popular Searches
+                            </h6>
+                            <div class="list-group list-group-flush">
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🔥</span>AI解决方案
+                                    <span
+                                        class="badge bg-light text-dark float-end"
+                                        >热门</span
+                                    >
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">⚡</span>GeoOptix
+                                    零件智研软件
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🤝</span>技术合作方案
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🧠</span>多模态大模型
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h6
+                                class="text-uppercase text-muted mb-3"
+                                style="
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                "
+                            >
+                                最近搜索 | Recent
+                            </h6>
+                            <div class="list-group list-group-flush">
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🕒</span>机器视觉技术
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🕒</span>高精度3D感知
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <h6
+                                class="text-uppercase text-muted mb-3"
+                                style="
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                "
+                            >
+                                建议分类 | Categories
+                            </h6>
+                            <div class="list-group list-group-flush">
+                                <a
+                                    href="index.html#products"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                    data-bs-dismiss="modal"
+                                >
+                                    <span class="me-2">📦</span>产品与服务
+                                </a>
+                                <a
+                                    href="index.html#about"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                    data-bs-dismiss="modal"
+                                >
+                                    <span class="me-2">ℹ️</span>关于我们
+                                </a>
+                                <a
+                                    href="index.html#support"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                    data-bs-dismiss="modal"
+                                >
+                                    <span class="me-2">💡</span>技术支持
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/ai-btn.js"></script>
+
+        <script src="assets/js/navbar.js"></script>
+
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
