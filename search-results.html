@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>搜索结果 | 溯湃科技</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/floating-btn.css" />
+        <style>
+            body {
+                min-height: 100vh;
+                position: relative;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url("assets/images/-------1.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 1;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            .search-hero {
+                padding: 140px 0 40px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .search-box-wrapper {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .search-box-container {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                border-radius: 24px;
+                padding: 16px 24px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .search-icon {
+                color: rgba(0, 0, 0, 0.5);
+            }
+
+            .search-input {
+                flex: 1;
+                border: none;
+                outline: none;
+                font-size: 18px;
+                font-family: "Inter", sans-serif;
+                background: transparent;
+                color: #000;
+            }
+
+            .search-input::placeholder {
+                color: rgba(0, 0, 0, 0.4);
+            }
+
+            .search-filters {
+                display: flex;
+                gap: 12px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .filter-btn {
+                padding: 8px 20px;
+                border: none;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.8);
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .filter-btn:hover,
+            .filter-btn.active {
+                background: linear-gradient(
+                    92.95deg,
+                    rgba(152, 217, 249, 0.6) -21.17%,
+                    rgba(219, 201, 129, 0.6) 136.83%
+                );
+                transform: translateY(-2px);
+            }
+
+            .search-results-container {
+                max-width: 1100px;
+                margin: 40px auto;
+                padding: 0 20px 80px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .results-header {
+                margin-bottom: 30px;
+            }
+
+            .results-count {
+                font-family: "Inter", sans-serif;
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .results-count strong {
+                color: #000;
+                font-weight: 600;
+            }
+
+            .result-item {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                border-radius: 20px;
+                padding: 30px;
+                margin-bottom: 20px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                transition: all 0.3s ease;
+            }
+
+            .result-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            }
+
+            .result-category {
+                display: inline-block;
+                padding: 6px 16px;
+                border-radius: 12px;
+                background: linear-gradient(
+                    92.95deg,
+                    rgba(152, 217, 249, 0.3) -21.17%,
+                    rgba(219, 201, 129, 0.3) 136.83%
+                );
+                font-size: 13px;
+                font-weight: 500;
+                color: #000;
+                margin-bottom: 12px;
+            }
+
+            .result-title {
+                font-family: "Inter", sans-serif;
+                font-size: 22px;
+                font-weight: 600;
+                color: #000;
+                margin: 12px 0;
+                text-decoration: none;
+                display: block;
+                transition: color 0.3s ease;
+            }
+
+            .result-title:hover {
+                color: rgba(152, 217, 249, 1);
+            }
+
+            .result-description {
+                font-size: 15px;
+                line-height: 1.6;
+                color: rgba(0, 0, 0, 0.7);
+                margin: 12px 0;
+            }
+
+            .result-meta {
+                display: flex;
+                gap: 20px;
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.5);
+                margin-top: 16px;
+            }
+
+            .result-meta span {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .no-results {
+                text-align: center;
+                padding: 80px 20px;
+            }
+
+            .no-results-icon {
+                font-size: 80px;
+                margin-bottom: 20px;
+            }
+
+            .no-results h2 {
+                font-family: "Inter", sans-serif;
+                font-size: 28px;
+                font-weight: 600;
+                color: #000;
+                margin-bottom: 12px;
+            }
+
+            .no-results p {
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.6);
+                max-width: 500px;
+                margin: 0 auto 30px;
+            }
+
+            .suggestions {
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(20px);
+                border-radius: 20px;
+                padding: 30px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .suggestions h3 {
+                font-family: "Inter", sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                color: #000;
+                margin-bottom: 16px;
+            }
+
+            .suggestions ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .suggestions li {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .suggestions li:last-child {
+                border-bottom: none;
+            }
+
+            .suggestions a {
+                color: rgba(0, 0, 0, 0.7);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .suggestions a:hover {
+                color: rgba(152, 217, 249, 1);
+            }
+
+            @media (max-width: 768px) {
+                .search-hero {
+                    padding: 120px 0 30px;
+                }
+
+                .search-box-container {
+                    padding: 14px 18px;
+                }
+
+                .search-input {
+                    font-size: 16px;
+                }
+
+                .result-item {
+                    padding: 20px;
+                }
+
+                .result-title {
+                    font-size: 20px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="loading-spinner-backdrop"></div>
+            <div class="loading-spinner-container">
+                <div class="spinner-circle"></div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img
+                        src="assets/images/---2.png"
+                        alt="Logo Icon"
+                        class="logo-icon"
+                    />
+                    <p
+                        style="
+                            font-family: &quot;Inter&quot;;
+                            font-size: 20px;
+                            margin-bottom: 0px;
+                        "
+                    >
+                        S O L P H I R E
+                    </p>
+                </div>
+
+                <ul class="nav-menu d-none d-lg-flex">
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">产品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cooperation" class="nav-link">技术合作</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#support" class="nav-link">技术支持</a>
+                    </li>
+                </ul>
+
+                <div class="nav-icons d-flex align-items-center">
+                    <button class="icon-btn" id="searchBtn" aria-label="Search">
+                        <svg
+                            width="29"
+                            height="29"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+
+                    <div class="dropdown-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="languageBtn"
+                            aria-label="Language"
+                        >
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                                ></path>
+                            </svg>
+                        </button>
+                        <div id="languageDropdown" class="dropdown-menu">
+                            <div class="dropdown-item active" data-lang="zh">
+                                <span class="dropdown-icon">🇨🇳</span>
+                                <span>中文 (简体)</span>
+                            </div>
+                            <div class="dropdown-item" data-lang="en">
+                                <span class="dropdown-icon">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="dropdown-item" data-lang="ja">
+                                <span class="dropdown-icon">🇯🇵</span>
+                                <span>日本語</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="userBtn"
+                            aria-label="Users"
+                        >
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                                ></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </button>
+                        <div id="userDropdown" class="dropdown-menu">
+                            <a href="login.html" class="dropdown-item">
+                                <span class="dropdown-icon">🔑</span>
+                                <span>登录 | Login</span>
+                            </a>
+                            <a href="register.html" class="dropdown-item">
+                                <span class="dropdown-icon">📝</span>
+                                <span>注册 | Register</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item">
+                                <span class="dropdown-icon">👤</span>
+                                <span>个人资料 | Profile</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <span class="dropdown-icon">⚙️</span>
+                                <span>设置 | Settings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="hamburger-menu"
+                        id="hamburgerMenu"
+                        aria-label="Menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <ul>
+                <li><a href="#products">产品</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#cooperation">技术合作</a></li>
+                <li><a href="#support">技术支持</a></li>
+            </ul>
+        </div>
+
+
+        <section class="search-hero">
+            <div class="search-box-wrapper">
+                <div class="search-box-container">
+                    <svg
+                        class="search-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input
+                        type="text"
+                        class="search-input"
+                        id="mainSearchInput"
+                        placeholder="搜索产品、服务、技术解决方案..."
+                    />
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        全部
+                    </button>
+                    <button class="filter-btn" data-filter="products">
+                        产品
+                    </button>
+                    <button class="filter-btn" data-filter="services">
+                        服务
+                    </button>
+                    <button class="filter-btn" data-filter="tech">技术</button>
+                    <button class="filter-btn" data-filter="docs">文档</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="search-results-container">
+            <div class="results-header">
+                <p class="results-count">
+                    找到 <strong id="resultCount">8</strong> 条相关结果
+                </p>
+            </div>
+
+            <div id="resultsContainer">
+                <div class="result-item" data-category="products">
+                    <span class="result-category">产品</span>
+                    <a href="learn-more.html" class="result-title"
+                        >GeoOptix AI零件智研软件</a
+                    >
+                    <p class="result-description">
+                        基于人工智能的三维数字化资产管理平台，支持STEP、IGES、STL等30+种主流3D格式，提供AI智能识别、高精度3D建模、质量管控等核心功能，助力企业实现"零缺陷"生产目标。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-10-01</span>
+                        <span>👁️ 浏览 1.2k</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="services">
+                    <span class="result-category">服务</span>
+                    <a href="index.html#cooperation" class="result-title"
+                        >AI算法研发与技术合作</a
+                    >
+                    <p class="result-description">
+                        提供灵活的交付方式：API接入、私有化部署、行业模型精调。融合文本生成、视觉感知与跨模态数据处理先进技术，深度挖掘行业特定数据价值，提供端到端闭环落地能力。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-09-28</span>
+                        <span>👁️ 浏览 856</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="tech">
+                    <span class="result-category">技术</span>
+                    <a href="#" class="result-title">多模态大模型技术</a>
+                    <p class="result-description">
+                        应用文本生成与理解(Large Language
+                        Models)、视觉感知与处理(Visual Language
+                        Models)，以及跨模态数据处理(Multi-modal
+                        Models)先进技术，为工业场景提供定制化AI解决方案。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-09-25</span>
+                        <span>👁️ 浏览 643</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="tech">
+                    <span class="result-category">技术</span>
+                    <a href="#" class="result-title">机器视觉与3D感知技术</a>
+                    <p class="result-description">
+                        基于3D激光雷达的工业AGV/AMR开发技术，高精度3D感知及数据预测分析，毫米级精度的三维空间建模技术，完美还原实物细节。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-09-22</span>
+                        <span>👁️ 浏览 532</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="services">
+                    <span class="result-category">服务</span>
+                    <a href="index.html#support" class="result-title"
+                        >技术支持与咨询服务</a
+                    >
+                    <p class="result-description">
+                        提供全方位的技术支持服务，包括在线文档、视频教程、邮件支持和企业级专属技术顾问。专业团队7×24小时为您的AI项目保驾护航。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-09-20</span>
+                        <span>👁️ 浏览 421</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="products">
+                    <span class="result-category">产品</span>
+                    <a href="#" class="result-title">智能制造数字化转型方案</a>
+                    <p class="result-description">
+                        为制造业企业提供完整的数字化转型解决方案，从数据标注、模型训练到算法优化与硬件系统部署，实现工业4.0智能制造转型升级。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-09-18</span>
+                        <span>👁️ 浏览 389</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="docs">
+                    <span class="result-category">文档</span>
+                    <a href="terms.html" class="result-title">服务条款</a>
+                    <p class="result-description">
+                        溯湃科技用户服务协议，包括使用协议、知识产权、用户责任、隐私保护等重要条款，请在使用我们的服务前仔细阅读。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-10-05</span>
+                        <span>👁️ 浏览 267</span>
+                    </div>
+                </div>
+
+                <div class="result-item" data-category="docs">
+                    <span class="result-category">文档</span>
+                    <a href="privacy-policy.html" class="result-title"
+                        >隐私政策</a
+                    >
+                    <p class="result-description">
+                        溯湃科技用户隐私保护政策，详细说明我们如何收集、使用、共享和保护您的个人信息，以及您享有的权利。
+                    </p>
+                    <div class="result-meta">
+                        <span>📅 更新于 2025-10-05</span>
+                        <span>👁️ 浏览 245</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="noResults" class="no-results" style="display: none">
+                <div class="no-results-icon">🔍</div>
+                <h2>未找到相关结果</h2>
+                <p>
+                    抱歉，我们没有找到与您的搜索相关的内容。请尝试使用不同的关键词或浏览以下推荐内容。
+                </p>
+                <div class="suggestions">
+                    <h3>推荐内容</h3>
+                    <ul>
+                        <li>
+                            <a href="learn-more.html"
+                                >📦 GeoOptix AI零件智研软件</a
+                            >
+                        </li>
+                        <li>
+                            <a href="index.html#cooperation">🤝 技术合作方案</a>
+                        </li>
+                        <li><a href="index.html#about">ℹ️ 关于我们</a></li>
+                        <li><a href="index.html#support">💡 技术支持</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating AI Assistant Button -->
+        <button
+            class="floating-ai-btn"
+            id="floatingAiBtn"
+            aria-label="AI Assistant"
+        >
+            <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                ></path>
+            </svg>
+        </button>
+
+        <!-- Chat Modal -->
+        <div class="chat-modal-overlay" id="chatModal">
+            <div class="chat-modal-container">
+                <!-- Enhanced Header -->
+                <div class="chat-modal-header">
+                    <div class="chat-header-left">
+                        <div class="chat-avatar-status">
+                            <div class="chat-ai-avatar">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div class="chat-status-indicator"></div>
+                        </div>
+                        <div class="chat-header-info">
+                            <h3>AI Agent 助手</h3>
+                            <span class="chat-status-text"
+                                >在线 - 随时为您服务</span
+                            >
+                        </div>
+                    </div>
+                    <div class="chat-header-actions">
+                        <button
+                            class="chat-action-btn"
+                            id="chatSettings"
+                            aria-label="Settings"
+                            title="设置"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="chat-action-btn"
+                            id="chatClear"
+                            aria-label="Clear Chat"
+                            title="清空对话"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="chat-modal-close"
+                            id="chatModalClose"
+                            aria-label="Close"
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Bar -->
+                <div class="chat-quick-actions">
+                    <button class="quick-action-btn" data-action="功能">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"
+                            ></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
+                        <span>产品功能</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="价格如何">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path
+                                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            ></path>
+                        </svg>
+                        <span>价格方案</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="如何开始使用">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>快速开始</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="支持">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path
+                                d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                            ></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <span>技术支持</span>
+                    </button>
+                </div>
+
+                <!-- Messages Area with File Drop Zone -->
+                <div class="chat-modal-messages" id="chatMessages">
+                    <div class="chat-welcome-message">
+                        <div class="welcome-icon">
+                            <svg
+                                width="48"
+                                height="48"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h4>欢迎使用 AI Agent 助手</h4>
+                        <p>
+                            我可以帮您了解GeoOptix产品功能、技术支持和更多信息
+                        </p>
+                    </div>
+                </div>
+
+                <!-- File Drop Zone Overlay -->
+                <div class="file-drop-zone" id="fileDropZone">
+                    <div class="drop-zone-content">
+                        <svg
+                            width="64"
+                            height="64"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                            ></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h3>拖放文件到此处</h3>
+                        <p>支持图片、PDF、文档等格式</p>
+                    </div>
+                </div>
+
+                <!-- Attachment Preview Area -->
+                <div
+                    class="chat-attachments-preview"
+                    id="attachmentsPreview"
+                ></div>
+
+                <!-- Enhanced Input Area -->
+                <div class="chat-modal-input-area">
+                    <div class="input-tools">
+                        <button
+                            class="input-tool-btn"
+                            id="fileUploadBtn"
+                            aria-label="Upload File"
+                            title="上传文件"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                                ></path>
+                            </svg>
+                        </button>
+                        <input
+                            type="file"
+                            id="fileInput"
+                            multiple
+                            accept="image/*,.pdf,.doc,.docx,.txt"
+                            style="display: none"
+                        />
+
+                        <button
+                            class="input-tool-btn"
+                            id="voiceInputBtn"
+                            aria-label="Voice Input"
+                            title="语音输入"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"
+                                ></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                        </button>
+
+                        <button
+                            class="input-tool-btn"
+                            id="emojiBtn"
+                            aria-label="Emoji"
+                            title="表情"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="input-main-wrapper">
+                        <textarea
+                            class="chat-modal-input"
+                            id="chatInput"
+                            placeholder="输入您的问题... (支持 Shift+Enter 换行)"
+                            autocomplete="off"
+                            rows="1"
+                        ></textarea>
+                        <button class="chat-modal-send" id="chatSend">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon
+                                    points="22 2 15 22 11 13 2 9 22 2"
+                                ></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Character Count -->
+                <div class="chat-input-footer">
+                    <span class="character-count" id="charCount">0/500</span>
+                    <span class="input-hint"
+                        >Shift+Enter 换行 | Enter 发送</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/ai-btn.js"></script>
+
+        <script src="assets/js/navbar.js"></script>
+
+
+        <script>
+            const searchInput = document.getElementById("mainSearchInput");
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const resultItems = document.querySelectorAll(".result-item");
+            const resultsContainer =
+                document.getElementById("resultsContainer");
+            const noResults = document.getElementById("noResults");
+            const resultCount = document.getElementById("resultCount");
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get("q");
+            if (searchQuery) {
+                searchInput.value = searchQuery;
+            }
+
+            searchInput.addEventListener("input", function () {
+                filterResults();
+            });
+
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    filterButtons.forEach((btn) =>
+                        btn.classList.remove("active"),
+                    );
+                    this.classList.add("active");
+                    filterResults();
+                });
+            });
+
+            function filterResults() {
+                const query = searchInput.value.toLowerCase();
+                const activeFilter =
+                    document.querySelector(".filter-btn.active").dataset.filter;
+                let visibleCount = 0;
+
+                resultItems.forEach((item) => {
+                    const title = item
+                        .querySelector(".result-title")
+                        .textContent.toLowerCase();
+                    const description = item
+                        .querySelector(".result-description")
+                        .textContent.toLowerCase();
+                    const category = item.dataset.category;
+
+                    const matchesQuery =
+                        query === "" ||
+                        title.includes(query) ||
+                        description.includes(query);
+                    const matchesFilter =
+                        activeFilter === "all" || category === activeFilter;
+
+                    if (matchesQuery && matchesFilter) {
+                        item.style.display = "block";
+                        visibleCount++;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                resultCount.textContent = visibleCount;
+
+                if (visibleCount === 0) {
+                    resultsContainer.style.display = "none";
+                    noResults.style.display = "block";
+                } else {
+                    resultsContainer.style.display = "block";
+                    noResults.style.display = "none";
+                }
+            }
+        </script>
+
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>

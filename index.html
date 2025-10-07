@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>溯湃科技 - AI解决方案</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Bootstrap CSS (Offline) -->
+        <link
+            rel="stylesheet"
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+        />
+
+        <!-- Swiper CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/floating-btn.css" />
+        <link rel="stylesheet" href="assets/css/bootstrap-extension.css" />
+    </head>
+
+    <body>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="loading-spinner-backdrop"></div>
+            <div class="loading-spinner-container">
+                <div class="spinner-circle"></div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img
+                        src="assets/images/---2.png"
+                        alt="Logo Icon"
+                        class="logo-icon"
+                    />
+                    <p
+                        style="
+                            font-family: &quot;Inter&quot;;
+                            font-size: 20px;
+                            margin-bottom: 0px;
+                        "
+                    >
+                        S O L P H I R E
+                    </p>
+                </div>
+
+                <ul class="nav-menu d-none d-lg-flex">
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">产品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cooperation" class="nav-link">技术合作</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#support" class="nav-link">技术支持</a>
+                    </li>
+                </ul>
+
+                <div class="nav-icons d-flex align-items-center">
+                    <button class="icon-btn" id="searchBtn" aria-label="Search">
+                        <svg
+                            width="29"
+                            height="29"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+
+                    <div class="dropdown-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="languageBtn"
+                            aria-label="Language"
+                        >
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                                ></path>
+                            </svg>
+                        </button>
+                        <div id="languageDropdown" class="dropdown-menu">
+                            <div class="dropdown-item active" data-lang="zh">
+                                <span class="dropdown-icon">🇨🇳</span>
+                                <span>中文 (简体)</span>
+                            </div>
+                            <div class="dropdown-item" data-lang="en">
+                                <span class="dropdown-icon">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="dropdown-item" data-lang="ja">
+                                <span class="dropdown-icon">🇯🇵</span>
+                                <span>日本語</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-wrapper">
+                        <button
+                            class="icon-btn"
+                            id="userBtn"
+                            aria-label="Users"
+                        >
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                                ></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </button>
+                        <div id="userDropdown" class="dropdown-menu">
+                            <a href="login.html" class="dropdown-item">
+                                <span class="dropdown-icon">🔑</span>
+                                <span>登录 | Login</span>
+                            </a>
+                            <a href="register.html" class="dropdown-item">
+                                <span class="dropdown-icon">📝</span>
+                                <span>注册 | Register</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item">
+                                <span class="dropdown-icon">👤</span>
+                                <span>个人资料 | Profile</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <span class="dropdown-icon">⚙️</span>
+                                <span>设置 | Settings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="hamburger-menu"
+                        id="hamburgerMenu"
+                        aria-label="Menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <ul>
+                <li><a href="#products">产品</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#cooperation">技术合作</a></li>
+                <li><a href="#support">技术支持</a></li>
+            </ul>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img
+                    src="assets/images/-------1.png"
+                    alt="Background"
+                    class="hero-bg-image"
+                />
+            </div>
+
+            <div class="container mt-lg-106">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="hero-content text-center">
+                            <div class="hero-title-wrap">
+                                <h1 class="hero-title">GeoOptix</h1>
+                                <img
+                                    src="assets/images/logo--1--1.png"
+                                    alt="GeoOptix Logo"
+                                    class="hero-logo"
+                                />
+                            </div>
+
+                            <h2 class="hero-subtitle">AI零件智研软件</h2>
+                            <p class="hero-tagline">
+                                加速推动三维数字化资产管理与智能制造转型
+                            </p>
+                            <div class="hero-divider"></div>
+                            <span class="hero-version"
+                                >2.3.6a 版本开发进行中</span
+                            >
+                            <a
+                                href="learn-more.html"
+                                class="cta-button"
+                                style="
+                                    text-decoration: none;
+                                    display: inline-block;
+                                "
+                            >
+                                <span>进一步了解</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Button -->
+        <div class="container mt-8">
+            <div class="row">
+                <div class="col-12">
+                    <div class="chat-btn">
+                        <button class="chat-button">
+                            <div class="chat-button-inner">
+                                <span class="chat-text">和我们Agent聊聊</span>
+                            </div>
+                        </button>
+                        <img
+                            src="assets/images/line-7.svg"
+                            alt="Line"
+                            class="chat-line"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="container-fluid mt-7">
+            <div class="row">
+                <div class="col-12">
+                    <div class="line-flex">
+                        <div class="geooptix-line1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Introduction -->
+        <section id="about" class="company-intro">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="company-top">
+                            <img
+                                src="assets/images/-----20250704155956-40-1.png"
+                                alt="Decorative"
+                                class="decoration-image"
+                            />
+                            <img
+                                src="assets/images/----.png"
+                                alt="Company Image"
+                                class="company-image"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <p class="company-text">
+                            深圳溯湃科技是以⼈⼯智能⾰新为核⼼的初创科技企业，位于深圳南山科技园中心，由5位AI领域资深研究者联合创⽴。我们专注于开发⾼价值、可落地的企业级AI解决⽅案，以多模态⼤模型、机器学习数据预测分析、机器视觉、机器人毫⽶级空间建模、⾼精度3D感知及数据预测分析等AI核心技术为根基，致⼒于打造赋能千⾏百业的智能化⽣产与管理引擎——助⼒企业实现产品管理"零缺陷"管控、优化生产开发流程、压缩成本，驱动全⾯数智化升级。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain Points Section -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <img
+                        src="assets/images/line-3.svg"
+                        alt="Divider"
+                        class="divider divider-2"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <section class="pain-points">
+            <div class="container">
+                <div class="row justify-content-center g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="pain-point">
+                            <h3>高成本</h3>
+                            <p>
+                                AI技术研发需要大量资金投入，资源难以高效利用。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="pain-point">
+                            <h3>高风险</h3>
+                            <p>
+                                AI技术试错成本高，传统流程难以满足质量与精度双重需求。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="pain-point">
+                            <h3>长周期</h3>
+                            <p>
+                                从技术开发到落地应用，漫长的周期阻碍企业数字化转型与创新节奏
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <img
+                        src="assets/images/line-3.svg"
+                        alt="Divider"
+                        class="divider divider-3"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <section id="products" class="solutions">
+            <div class="container">
+                <div class="row justify-content-center g-4">
+                    <div class="col-12 col-lg-10">
+                        <div class="solution">
+                            <h3>技术赋能降成本</h3>
+                            <p>
+                                无需组建庞大的基础研发团队，无需重复投入底层技术建设。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="solution">
+                            <h3>缩短周期</h3>
+                            <p>
+                                专业团队，提供先进模型与部署方案，极大加速项目上线进程。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="solution">
+                            <h3>规避风险</h3>
+                            <p>
+                                基于成熟、稳定、可控的技术体系，确保项目成功落地，降低试错代价
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="line-flex">
+                        <div class="geooptix-line1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title title-outsource">
+                        将AI算法研发交给我们
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title title-solutions">解决方案介绍</h2>
+                </div>
+            </div>
+        </div>
+
+        <section id="cooperation" class="services-content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <p>
+                            我们可提供
+                            <br /><br />
+                            灵活的交付⽅式： API
+                            接⼊、私有化部署、⾏业模型精调。
+                            <br /><br />
+                            高性能算法融合<br />
+                            应用 文本生成与理解(Large Language
+                            Models)、视觉感知与处理(Visual Language
+                            Models)，以及跨模态数据处理(Multi-modal
+                            Models)先进技术，深度挖掘行业特定数据价值。
+                            <br /><br />
+                            针对复杂业务需求，定制专属学习路径与优化算法，提升模型在真实工业场景中的适配性与推理效率
+                            <br /><br />
+                            端到端闭环落地能⼒：
+                            从数据标注、模型训练到算法优化与硬件系统部署。
+                            <br /><br />
+                            核⼼保障： 系统强调安全、⾼效、可控。
+                            <br /><br />
+                            减少您的研发成本和风险
+                            <br /><br />
+                            完善成熟严谨的工作流程与服务：启动、规划、执行、监控、收尾
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Cards -->
+        <div class="portfolio-cards-container">
+            <div class="swiper portfolio-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="portfolio-card card-main">
+                            <div class="card-gradient"></div>
+                            <img
+                                src="assets/images/image-4.png"
+                                alt="Project 1"
+                                class="card-image-1"
+                            />
+                            <img
+                                src="assets/images/image-3.png"
+                                alt="Project 2"
+                                class="card-image-2"
+                            />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="assets/images/------------.svg"
+                            alt="Card Image"
+                            class="portfolio-card-image"
+                        />
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-card card-main">
+                            <div class="card-gradient"></div>
+                            <img
+                                src="assets/images/image-4.png"
+                                alt="Project 1"
+                                class="card-image-1"
+                            />
+                            <img
+                                src="assets/images/image-3.png"
+                                alt="Project 2"
+                                class="card-image-2"
+                            />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="assets/images/------------.svg"
+                            alt="Card Image"
+                            class="portfolio-card-image"
+                        />
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-card card-main">
+                            <div class="card-gradient"></div>
+                            <img
+                                src="assets/images/image-4.png"
+                                alt="Project 1"
+                                class="card-image-1"
+                            />
+                            <img
+                                src="assets/images/image-3.png"
+                                alt="Project 2"
+                                class="card-image-2"
+                            />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="assets/images/------------.svg"
+                            alt="Card Image"
+                            class="portfolio-card-image"
+                        />
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-card card-main">
+                            <div class="card-gradient"></div>
+                            <img
+                                src="assets/images/image-4.png"
+                                alt="Project 1"
+                                class="card-image-1"
+                            />
+                            <img
+                                src="assets/images/image-3.png"
+                                alt="Project 2"
+                                class="card-image-2"
+                            />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="assets/images/------------.svg"
+                            alt="Card Image"
+                            class="portfolio-card-image"
+                        />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title title-about">关于我们</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <img
+                        src="assets/images/line-2.svg"
+                        alt="Divider"
+                        class="divider divider-6"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <section class="team-section">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="swiper team-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="team-member">
+                                        <div class="team-avatar"></div>
+                                        <p class="team-desc">
+                                            爱丁堡⼤学AI硕⼠，对⼈⼯智能算法和产品设计⼗分热衷，负责过基于3D激光雷达的⼯业AGV/AMR开发和的3D⼯程⽂件智能处理系统研发，设计基于⼏何+拓扑特征融合，并开发分布式特征向量索引架构。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="team-member">
+                                        <div class="team-avatar"></div>
+                                        <p class="team-desc">
+                                            苏黎世联邦理⼯学院和爱丁堡⼤学AI硕⼠。在ACM等多个竞赛获得国家级奖项，曾担任宏瓴科技的⼤模型⼯程师，主导开发了⾸个物流⻛险管控的多模态⼤语⾔模型。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="team-member">
+                                        <div class="team-avatar"></div>
+                                        <p class="team-desc">
+                                            帝国理⼯与布⾥斯托⼤学航天航空博⼠，获得过波⾳的奖学⾦，负责过为巴⻄航空⼯业优化机翼减重，热衷并精通⼯业产品设计，和结构优化。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="team-member">
+                                        <div class="team-avatar"></div>
+                                        <p class="team-desc">
+                                            爱丁堡⼤学AI&CS硕⼠，拥有超过3年机器⼈，平⾏计算以及嵌⼊式软件开发和AI后端开发经验的全栈⼯程师。负责过城市管道缺陷检测机器⼈的开发。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="team-member">
+                                        <div class="team-avatar"></div>
+                                        <p class="team-desc">
+                                            剑桥与帝国理⼯⽣物⼯程博⼠，腾讯前移动端开发⼯程师，主导过微⽣物研究所⽣物信息通⽤接⼝研发。聚焦机器学习驱动精准医疗创新，突破个性化医疗⽅案⼯程化瓶颈，实现技术临床场景落地。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="support">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center mt-8">
+                        <img
+                            src="assets/images/-----1.png"
+                            alt="Decorative"
+                            class="decoration-graph"
+                            style="display: inline"
+                        />
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <img
+                            src="assets/images/group-4-1.png"
+                            alt="Contact Map"
+                            class="contact-map"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container-fluid">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>产品</h4>
+                        <ul>
+                            <li>思维导图</li>
+                            <li>流程图</li>
+                            <li>结构化图</li>
+                            <li>在线白板</li>
+                            <li>原型/设计</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>资源</h4>
+                        <ul>
+                            <li>模板社区</li>
+                            <li>知识教程</li>
+                            <li>视频频道</li>
+                            <li>帮助中心</li>
+                            <li>使用手册</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>支持</h4>
+                        <ul>
+                            <li>私有化部署</li>
+                            <li>教育认证</li>
+                            <li>对标Visio</li>
+                            <li>LaTex</li>
+                            <li>MathType</li>
+                            <li>Geogebra</li>
+                            <li>Mermaid</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>关于</h4>
+                        <ul>
+                            <li>关于我们</li>
+                            <li>加入我们</li>
+                            <li>服务条款</li>
+                            <li>隐私政策</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section contact">
+                        <h4>联系</h4>
+                        <p>邮箱: support@processon.com</p>
+                        <p>电话: 010-82796300 (个人版)</p>
+                        <p>010-86393699 (团队版)</p>
+                        <p>(工作日 9:30-18:30)</p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="qr-block">
+                        <div class="qr-row">
+                            <div class="qr">
+                                <img
+                                    src="./assets/images/qr-code.png"
+                                    alt="QR Code"
+                                />
+                            </div>
+
+                            <div class="qr-details">
+                                <p>微信：rayaesthe</p>
+                                <p>电话：18617033109</p>
+                                <p>邮箱：solpire@outlook.com</p>
+                            </div>
+
+                            <div class="social-media" aria-label="social links">
+                                <a href="#" aria-label="WeChat">
+                                    <img
+                                        src="./assets/images/wechat.png"
+                                        alt="WeChat Icon"
+                                    />
+                                </a>
+                                <a href="#" aria-label="Weibo">
+                                    <img
+                                        src="./assets/images/weibo.png"
+                                        alt="Weibo Icon"
+                                    />
+                                </a>
+                                <a href="#" aria-label="LinkedIn">
+                                    <img
+                                        src="./assets/images/linkedin.png"
+                                        alt="LinkedIn Icon"
+                                    />
+                                </a>
+                                <a href="#" aria-label="Facebook">
+                                    <img
+                                        src="./assets/images/facebook.png"
+                                        alt="Facebook Icon"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="copyright">
+                            <p>
+                                ©2020 北京光大维他信息技术有限公司 |
+                                京ICP备15006865号-1 | 京公网安备
+                                11010802033154号
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap Search Modal -->
+        <div
+            class="modal fade"
+            id="searchModal"
+            tabindex="-1"
+            aria-labelledby="searchModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div
+                    class="modal-content"
+                    style="border-radius: 20px; border: none"
+                >
+                    <div
+                        class="modal-header"
+                        style="
+                            border-bottom: 1px solid #eee;
+                            padding: 25px 30px;
+                        "
+                    >
+                        <div class="d-flex align-items-center gap-3 w-100">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#666"
+                                stroke-width="2"
+                            >
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input
+                                type="text"
+                                class="form-control border-0 shadow-none"
+                                id="searchInput"
+                                placeholder="搜索产品、服务、技术解决方案..."
+                                style="font-size: 18px"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div
+                        class="modal-body"
+                        style="max-height: 500px; overflow-y: auto"
+                    >
+                        <div class="mb-4">
+                            <h6
+                                class="text-uppercase text-muted mb-3"
+                                style="
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                "
+                            >
+                                热门搜索 | Popular Searches
+                            </h6>
+                            <div class="list-group list-group-flush">
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🔥</span>AI解决方案
+                                    <span
+                                        class="badge bg-light text-dark float-end"
+                                        >热门</span
+                                    >
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">⚡</span>GeoOptix
+                                    零件智研软件
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🤝</span>技术合作方案
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🧠</span>多模态大模型
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h6
+                                class="text-uppercase text-muted mb-3"
+                                style="
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                "
+                            >
+                                最近搜索 | Recent
+                            </h6>
+                            <div class="list-group list-group-flush">
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🕒</span>机器视觉技术
+                                </a>
+                                <a
+                                    href="#"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                >
+                                    <span class="me-2">🕒</span>高精度3D感知
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <h6
+                                class="text-uppercase text-muted mb-3"
+                                style="
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                "
+                            >
+                                建议分类 | Categories
+                            </h6>
+                            <div class="list-group list-group-flush">
+                                <a
+                                    href="#products"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                    data-bs-dismiss="modal"
+                                >
+                                    <span class="me-2">📦</span>产品与服务
+                                </a>
+                                <a
+                                    href="#about"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                    data-bs-dismiss="modal"
+                                >
+                                    <span class="me-2">ℹ️</span>关于我们
+                                </a>
+                                <a
+                                    href="#support"
+                                    class="list-group-item list-group-item-action border-0 rounded-3 mb-2"
+                                    data-bs-dismiss="modal"
+                                >
+                                    <span class="me-2">💡</span>技术支持
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating AI Assistant Button -->
+        <button
+            class="floating-ai-btn"
+            id="floatingAiBtn"
+            aria-label="AI Assistant"
+        >
+            <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                ></path>
+            </svg>
+        </button>
+
+        <!-- Chat Modal -->
+        <div class="chat-modal-overlay" id="chatModal">
+            <div class="chat-modal-container">
+                <!-- Enhanced Header -->
+                <div class="chat-modal-header">
+                    <div class="chat-header-left">
+                        <div class="chat-avatar-status">
+                            <div class="chat-ai-avatar">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div class="chat-status-indicator"></div>
+                        </div>
+                        <div class="chat-header-info">
+                            <h3>AI Agent 助手</h3>
+                            <span class="chat-status-text"
+                                >在线 - 随时为您服务</span
+                            >
+                        </div>
+                    </div>
+                    <div class="chat-header-actions">
+                        <button
+                            class="chat-action-btn"
+                            id="chatSettings"
+                            aria-label="Settings"
+                            title="设置"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="chat-action-btn"
+                            id="chatClear"
+                            aria-label="Clear Chat"
+                            title="清空对话"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="chat-modal-close"
+                            id="chatModalClose"
+                            aria-label="Close"
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Bar -->
+                <div class="chat-quick-actions">
+                    <button class="quick-action-btn" data-action="功能">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"
+                            ></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
+                        <span>产品功能</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="价格如何">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path
+                                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            ></path>
+                        </svg>
+                        <span>价格方案</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="如何开始使用">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>快速开始</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="支持">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path
+                                d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                            ></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <span>技术支持</span>
+                    </button>
+                </div>
+
+                <!-- Messages Area with File Drop Zone -->
+                <div class="chat-modal-messages" id="chatMessages">
+                    <div class="chat-welcome-message">
+                        <div class="welcome-icon">
+                            <svg
+                                width="48"
+                                height="48"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h4>欢迎使用 AI Agent 助手</h4>
+                        <p>
+                            我可以帮您了解GeoOptix产品功能、技术支持和更多信息
+                        </p>
+                    </div>
+                </div>
+
+                <!-- File Drop Zone Overlay -->
+                <div class="file-drop-zone" id="fileDropZone">
+                    <div class="drop-zone-content">
+                        <svg
+                            width="64"
+                            height="64"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                            ></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h3>拖放文件到此处</h3>
+                        <p>支持图片、PDF、文档等格式</p>
+                    </div>
+                </div>
+
+                <!-- Attachment Preview Area -->
+                <div
+                    class="chat-attachments-preview"
+                    id="attachmentsPreview"
+                ></div>
+
+                <!-- Enhanced Input Area -->
+                <div class="chat-modal-input-area">
+                    <div class="input-tools">
+                        <button
+                            class="input-tool-btn"
+                            id="fileUploadBtn"
+                            aria-label="Upload File"
+                            title="上传文件"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                                ></path>
+                            </svg>
+                        </button>
+                        <input
+                            type="file"
+                            id="fileInput"
+                            multiple
+                            accept="image/*,.pdf,.doc,.docx,.txt"
+                            style="display: none"
+                        />
+
+                        <button
+                            class="input-tool-btn"
+                            id="voiceInputBtn"
+                            aria-label="Voice Input"
+                            title="语音输入"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"
+                                ></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                        </button>
+
+                        <button
+                            class="input-tool-btn"
+                            id="emojiBtn"
+                            aria-label="Emoji"
+                            title="表情"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="input-main-wrapper">
+                        <textarea
+                            class="chat-modal-input"
+                            id="chatInput"
+                            placeholder="输入您的问题... (支持 Shift+Enter 换行)"
+                            autocomplete="off"
+                            rows="1"
+                        ></textarea>
+                        <button class="chat-modal-send" id="chatSend">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon
+                                    points="22 2 15 22 11 13 2 9 22 2"
+                                ></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Character Count -->
+                <div class="chat-input-footer">
+                    <span class="character-count" id="charCount">0/500</span>
+                    <span class="input-hint"
+                        >Shift+Enter 换行 | Enter 发送</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/ai-btn.js"></script>
+
+        <script src="assets/js/navbar.js"></script>
+
+        <!-- Bootstrap JS (Offline) -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Custom JavaScript -->
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/carousel.js"></script>
+        <script src="assets/js/swiper-init.js"></script>
+    </body>
+</html>
