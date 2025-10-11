@@ -135,20 +135,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     navLinks.forEach((link) => {
         link.addEventListener("click", function (e) {
-            e.preventDefault();
-
             const targetId = this.getAttribute("href");
-            const targetSection = document.querySelector(targetId);
+            
+            // Only do smooth scrolling for same-page anchors (starting with #)
+            if (targetId.startsWith("#")) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
 
-            if (targetSection) {
-                const navbarHeight = 120;
-                const targetPosition = targetSection.offsetTop - navbarHeight;
+                if (targetSection) {
+                    const navbarHeight = 120;
+                    const targetPosition = targetSection.offsetTop - navbarHeight;
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth",
-                });
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth",
+                    });
+                }
             }
+            // For links to other pages (like index.html#section), allow default navigation
         });
     });
 
